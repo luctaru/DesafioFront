@@ -9,14 +9,17 @@
       "beginData": "",
       "endData": "",
       "ancestorId": null,
-      "childs": [
-      ],
+      "childs": [],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
-        {"userid": 2},
-        {"userid": 3}
+        {
+          "userid": 2
+        },
+        {
+          "userid": 3
+        }
       ],
-      "cost": 20.00
+      "cost": 20
     },
     {
       "id": 1,
@@ -27,13 +30,14 @@
       "beginData": "2019-03-30",
       "endData": "2019-04-15",
       "ancestorId": null,
-      "childs": [
-      ],
+      "childs": [],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
-        {"userid": 1}
+        {
+          "userid": 1
+        }
       ],
-      "cost": 30.00
+      "cost": 30
     },
     {
       "id": 2,
@@ -45,17 +49,23 @@
       "endData": "2019-04-02",
       "ancestorId": null,
       "childs": [
-        {"childid": 1},
-        {"childid": 2}
+        {
+          "childid": 1
+        },
+        {
+          "childid": 2
+        }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
-        {"userid": 2}
+        {
+          "userid": 2
+        }
       ],
-      "cost": 40.00
+      "cost": 40
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Plano 3.1",
       "type": "Tipo 3",
       "user": "Usuario 3",
@@ -63,13 +73,14 @@
       "beginData": "2019-03-30",
       "endData": "2019-04-02",
       "ancestorId": 2,
-      "childs": [
-      ],
+      "childs": [],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
-        {"userid": 2}
+        {
+          "userid": 2
+        }
       ],
-      "cost": 50.00
+      "cost": 50
     }
   ],
   "users": [
@@ -92,6 +103,18 @@
       "id": 3,
       "name": "Usuario 4",
       "email": "usu4@email.com"
+    }
+  ],
+  "types": [
+    {
+      "id": 0,
+      "name": "Tipo 1",
+      "description": "desc 1"
+    },
+    {
+      "id": 1,
+      "name": "Tipo 2",
+      "description": "desc 2"
     }
   ]
 }

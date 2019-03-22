@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 60%;
+  margin-left:2%;
+}
+
+#add_icon{
+  margin-left: 5%;
+  margin-right: 5%;
+}
