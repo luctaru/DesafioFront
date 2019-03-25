@@ -1,0 +1,11 @@
+.stepbtn{
+  background-color: blue;
+}
+
+mat-dialog-actions{
+  justify-content: space-between;
+}
+
+mat-dialog-actions button{
+  background-color: gray;
+}

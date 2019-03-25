@@ -1,0 +1,7 @@
+button{
+  background-color: gray;
+}
+
+mat-dialog-actions{
+  justify-content: space-between;
+}

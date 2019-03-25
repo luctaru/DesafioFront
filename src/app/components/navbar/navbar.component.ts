@@ -17,10 +17,10 @@ export class NavbarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  setLocalStorageTrue() {
-    localStorage.setItem('types', 'true');
+  setLocalStorageUser() {
+    localStorage.setItem('types', 'users');
   }
-  setLocalStorageFalse() {
-    localStorage.setItem('types', 'false');
+  setLocalStoragePlantype() {
+    localStorage.setItem('types', 'types');
   }
 }

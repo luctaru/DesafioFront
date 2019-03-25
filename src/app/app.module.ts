@@ -25,6 +25,7 @@ import { PlanlistComponent } from './components/planlist/planlist.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TableComponent } from './components/table/table.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { FormdialogComponent } from './components/formdialog/formdialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     NavbarComponent,
     PlanlistComponent,
     TableComponent,
-    DialogComponent
+    DialogComponent,
+    FormdialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatStepperModule
   ],
   entryComponents: [
-    DialogComponent
+    DialogComponent,
+    FormdialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

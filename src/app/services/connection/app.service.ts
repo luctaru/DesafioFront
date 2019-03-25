@@ -20,8 +20,12 @@ export class AppService {
     }
   }
 
-  getOne(id) {
-    return this.http.get<User>(`${this.API}/${id}`).pipe(take(1));
+  getOne(e, type) {
+    if (type === 'users') {
+      return this.http.get<User>(`${this.API}/${type}/${e.id}`).pipe(take(1));
+    } else {
+      return this.http.get<User>(`${this.API}/${type}/${e.id}`).pipe(take(1));
+    }
   }
 
   // update(d, bool) {

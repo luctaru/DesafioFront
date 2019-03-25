@@ -71,7 +71,7 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   render() {
-    if (localStorage.getItem('types') === 'false') {
+    if (localStorage.getItem('types') === 'users') {
       this.displayedColumns = [
         'name',
         'email',
@@ -98,16 +98,15 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   redirectToDelete = (id: string) => {
-    localStorage.setItem('dialogFunc', 'del');
     this.dialogService.delDialog(this.dialog, id);
   }
 
   redirectToAdd = () => {
-
+    localStorage.setItem('dialogFunc', 'add');
   }
 
-  // redirectToEdit = (id: string) => {
-  //   localStorage.setItem('dialogFunc', 'edit');
-  //   this.dialogService.editDialog(this.dialog, ,id);
-  // }
+  redirectToEdit = (e: any) => {
+    localStorage.setItem('dialogFunc', 'edit');
+    this.dialogService.editDialog(this.dialog, e);
+  }
 }
