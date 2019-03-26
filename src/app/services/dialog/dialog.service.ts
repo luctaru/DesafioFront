@@ -44,21 +44,21 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result.closed);
-    //   if (result.closed) {
-    //     if (id) {
-    //       this.service.update(obj, obj.isFavorite).subscribe(() => {
-    //         this.emitt.emit();
-    //       });
-    //     } else {
-    //       obj.isFavorite = false;
-    //       this.service.insert(obj).subscribe(() => {
-    //         this.emitt.emit();
-    //       });
-    //     }
-    //   } else {
-    //     alert('Canceled');
-    //   }
+      if (result.closed) {
+        console.log(result.closed);
+        if (result.data.id !== null) {
+
+          this.service.update(result.data, localStorage.getItem('types')).subscribe(() => {
+            this.emitt.emit();
+          });
+        } else {
+          this.service.insert(result.data, localStorage.getItem('types')).subscribe(() => {
+            this.emitt.emit();
+          });
+        }
+      } else {
+        alert('Canceled');
+      }
     });
   }
 }

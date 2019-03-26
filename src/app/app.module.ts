@@ -18,7 +18,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule,
-  MatStepperModule
+  MatStepperModule,
+  MatExpansionModule
 } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { PlanlistComponent } from './components/planlist/planlist.component';
@@ -56,7 +57,8 @@ import { FormdialogComponent } from './components/formdialog/formdialog.componen
     MatInputModule,
     HttpClientModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
+    MatExpansionModule
   ],
   entryComponents: [
     DialogComponent,

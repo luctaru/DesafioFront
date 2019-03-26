@@ -4,12 +4,15 @@
       "id": 0,
       "name": "Plano 1",
       "type": "Tipo 1",
-      "user": "Usuario 1",
+      "user": {
+        "id": 0,
+        "name": "Usuario 1",
+        "email": "usu1@email.com"
+      },
       "status": 0,
-      "beginData": "",
-      "endData": "",
-      "ancestorId": null,
-      "childs": [],
+      "beginData": null,
+      "endData": null,
+      "childs": [null],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
         {
@@ -25,12 +28,15 @@
       "id": 1,
       "name": "Plano 2",
       "type": "Tipo 3",
-      "user": "Usuario 1",
+      "user": {
+        "id": 0,
+        "name": "Usuario 1",
+        "email": "usu1@email.com"
+      },
       "status": 1,
       "beginData": "2019-03-30",
       "endData": "2019-04-15",
-      "ancestorId": null,
-      "childs": [],
+      "childs": [null],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
         {
@@ -43,17 +49,35 @@
       "id": 2,
       "name": "Plano 3",
       "type": "Tipo 3",
-      "user": "Usuario 3",
+      "user": {
+        "id": 2,
+        "name": "Usuario 3",
+        "email": "usu3@email.com"
+      },
       "status": 2,
       "beginData": "2019-03-30",
       "endData": "2019-04-02",
-      "ancestorId": null,
       "childs": [
         {
-          "childid": 1
-        },
-        {
-          "childid": 2
+          "id": 3,
+          "name": "Plano 3.1",
+          "type": "Tipo 3",
+          "user": {
+            "id": 2,
+            "name": "Usuario 3",
+            "email": "usu3@email.com"
+          },
+          "status": 3,
+          "beginData": "2019-03-30",
+          "endData": "2019-04-02",
+          "childs": [null],
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+          "stakeholders": [
+            {
+              "userid": 2
+            }
+          ],
+          "cost": 50
         }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
@@ -63,25 +87,8 @@
         }
       ],
       "cost": 40
-    },
-    {
-      "id": 3,
-      "name": "Plano 3.1",
-      "type": "Tipo 3",
-      "user": "Usuario 3",
-      "status": 3,
-      "beginData": "2019-03-30",
-      "endData": "2019-04-02",
-      "ancestorId": 2,
-      "childs": [],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "stakeholders": [
-        {
-          "userid": 2
-        }
-      ],
-      "cost": 50
     }
+
   ],
   "users": [
     {
@@ -101,20 +108,30 @@
     },
     {
       "id": 3,
-      "name": "Usuario 4",
-      "email": "usu4@email.com"
+      "name": "Usuario 5",
+      "email": "usu5@email.com"
+    },
+    {
+      "name": "Lucas",
+      "email": "luctaru@email.com",
+      "id": 4
     }
   ],
   "types": [
     {
       "id": 0,
-      "name": "Tipo 1",
-      "description": "desc 1"
+      "name": "Tipo 3",
+      "description": "desc 3"
     },
     {
       "id": 1,
       "name": "Tipo 2",
       "description": "desc 2"
+    },
+    {
+      "id": 2,
+      "name": "Tipo 1",
+      "description": "Desc 1"
     }
   ]
 }

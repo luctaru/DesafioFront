@@ -103,6 +103,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
   redirectToAdd = () => {
     localStorage.setItem('dialogFunc', 'add');
+    this.dialogService.editDialog(this.dialog, null);
   }
 
   redirectToEdit = (e: any) => {

@@ -16,7 +16,7 @@
       <mat-form-field>
         <input
           matInput
-          placeholder="Address"
+          [placeholder]="label == 'types' ? 'Descrição' : 'E-mail'"
           [formControlName]="secondCtrl"
           required
         />

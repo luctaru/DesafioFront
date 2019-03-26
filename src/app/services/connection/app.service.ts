@@ -28,37 +28,39 @@ export class AppService {
     }
   }
 
-  // update(d, bool) {
-  //   const body = {
-  //     firstName: d.firstName,
-  //     lastName: d.lastName,
-  //     email: d.email,
-  //     gender: d.gender,
-  //     isFavorite: bool,
-  //     company: d.info.company,
-  //     avatar: d.info.avatar,
-  //     address: d.info.address,
-  //     phone: d.info.phone,
-  //     comments: d.info.comments
-  //   };
-  //   return this.http.put(`${this.API}/${d.id}`, body).pipe(take(1));
-  // }
+  update(d, type) {
+    let body;
+    if (type === 'types') {
+      body = {
+        id: d.id,
+        name: d.name,
+        description: d.description
+      };
+    } else {
+      body = {
+        id: d.id,
+        name: d.name,
+        email: d.email
+      };
+    }
+    return this.http.put(`${this.API}/${type}/${d.id}`, body).pipe(take(1));
+  }
 
-  // insert(d) {
-  //   const body = {
-  //     firstName: d.firstName,
-  //     lastName: d.lastName,
-  //     email: d.email,
-  //     gender: d.gender,
-  //     isFavorite: d.isFavorite,
-  //     company: d.info.company,
-  //     avatar: d.info.avatar,
-  //     address: d.info.address,
-  //     phone: d.info.phone,
-  //     comments: d.info.comments
-  //   };
-  //   return this.http.post(`${this.API}`, body).pipe(take(1));
-  // }
+  insert(d, type) {
+    let body;
+    if (type === 'types') {
+      body = {
+        name: d.name,
+        description: d.description
+      };
+    } else {
+      body = {
+        name: d.name,
+        email: d.email
+      };
+    }
+    return this.http.post(`${this.API}/${type}`, body).pipe(take(1));
+  }
 
   delete(type, id) {
     return this.http.delete<User>(`${this.API}/${type}/${id}`).pipe(take(1));

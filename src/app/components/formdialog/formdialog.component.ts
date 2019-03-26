@@ -13,6 +13,7 @@ export class FormdialogComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
   dialF = localStorage.getItem('dialogFunc');
+  label = localStorage.getItem('types');
   secondCtrl = null;
 
   constructor(
