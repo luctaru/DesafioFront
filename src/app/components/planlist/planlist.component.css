@@ -16,7 +16,7 @@ section{
 
 .example-list {
   border: solid 1px #ccc;
-  height: 100%;
+  min-height: 100%;
   background: white;
   border-radius: 4px;
   overflow: hidden;
@@ -25,23 +25,37 @@ section{
 
 .example-box {
   width: 100%;
-  height: 30%;
-  padding: 0px;
+
+  max-height: 35%;
+  padding: 10px;
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-flow: row wrap!important;
   box-sizing: border-box;
   cursor: move;
   background: white;
   font-size: 14px;
 }
 
-mat-expansion-panel{
-  width: 100%;
-  height: 100%;
+mat-tab-group{
+  width: 70%;
+  min-height: 100%!important;
+}
+
+mat-tab{
+  min-height: 100%!important;
+}
+
+#divchilds{
+  display: none;
+}
+
+.mat-select-placeholder {
+  color: rgba(0,0,0,.42);
 }
 
 .cdk-drag-preview {

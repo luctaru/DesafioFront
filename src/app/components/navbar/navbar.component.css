@@ -17,5 +17,5 @@
 }
 
 .example-sidenav-container{
-  height: 100%!important;
+  min-height: 100%!important;
 }

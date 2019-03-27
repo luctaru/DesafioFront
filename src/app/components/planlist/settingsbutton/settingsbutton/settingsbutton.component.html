@@ -1,0 +1,35 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="editPlan()">
+    <mat-icon>edit</mat-icon>
+    <span>Editar</span>
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">
+    <mat-icon>cached</mat-icon>
+    <span>Mudar Status</span>
+  </button>
+  <button mat-menu-item (click)="delPlan()">
+    <mat-icon>delete</mat-icon>
+    <span>Remover</span>
+  </button>
+</mat-menu>
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item (click)="changeStatus()">
+    <mat-icon>play_arrow </mat-icon>Iniciar
+  </button>
+  <button mat-menu-item (click)="changeStatus()">
+    <mat-icon>check</mat-icon>Concluído
+  </button>
+  <button mat-menu-item (click)="changeStatus()">
+    <mat-icon>pause</mat-icon>Suspenso
+  </button>
+  <button mat-menu-item (click)="changeStatus()">
+    <mat-icon>not_interested</mat-icon>Cancelado
+  </button>
+</mat-menu>

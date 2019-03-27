@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { tap, delay, take, map } from 'rxjs/operators';
 import { User } from '../../interface/user';
 import { HttpClient } from '@angular/common/http';
+import { Plans } from 'src/app/interface/plans';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class AppService {
     } else {
       return this.http.get<User[]>(`${this.API}/${type}`);
     }
+  }
+
+  listPlans() {
+    return this.http.get<Plans[]>(`${this.API}/plans`);
   }
 
   getOne(e, type) {
@@ -36,7 +41,7 @@ export class AppService {
         name: d.name,
         description: d.description
       };
-    } else {
+    } else if (type === 'users') {
       body = {
         id: d.id,
         name: d.name,
@@ -44,6 +49,22 @@ export class AppService {
       };
     }
     return this.http.put(`${this.API}/${type}/${d.id}`, body).pipe(take(1));
+  }
+
+  updatePlan(d, id) {
+    const body = {
+      name: d.name,
+      type: d.type,
+      user: d.user,
+      status: d.status,
+      beginData: d.beginData,
+      endData: d.endData,
+      childs: d.childs,
+      description: d.description,
+      stakeholders: d.stakeholders,
+      cost: d.cost
+    };
+    return this.http.put(`${this.API}/plans/${id}`, body).pipe(take(1));
   }
 
   insert(d, type) {

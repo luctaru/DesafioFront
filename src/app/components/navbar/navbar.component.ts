@@ -17,6 +17,9 @@ export class NavbarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  setLocalStoragePlans() {
+    localStorage.setItem('types', 'plans');
+  }
   setLocalStorageUser() {
     localStorage.setItem('types', 'users');
   }

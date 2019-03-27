@@ -19,7 +19,9 @@ import {
   MatInputModule,
   MatDialogModule,
   MatStepperModule,
-  MatExpansionModule
+  MatTabsModule,
+  MatSelectModule,
+  MatMenuModule
 } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { PlanlistComponent } from './components/planlist/planlist.component';
@@ -27,6 +29,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TableComponent } from './components/table/table.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormdialogComponent } from './components/formdialog/formdialog.component';
+import { SettingsbuttonComponent } from './components/planlist/settingsbutton/settingsbutton/settingsbutton.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { FormdialogComponent } from './components/formdialog/formdialog.componen
     PlanlistComponent,
     TableComponent,
     DialogComponent,
-    FormdialogComponent
+    FormdialogComponent,
+    SettingsbuttonComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import { FormdialogComponent } from './components/formdialog/formdialog.componen
     HttpClientModule,
     MatDialogModule,
     MatStepperModule,
-    MatExpansionModule
+    MatTabsModule,
+    MatSelectModule,
+    MatMenuModule
   ],
   entryComponents: [
     DialogComponent,

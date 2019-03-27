@@ -33,7 +33,7 @@ export class FormdialogComponent implements OnInit {
         name: ['', Validators.required],
         email: ['', Validators.required]
       });
-    } else {
+    } else if (localStorage.getItem('types') === 'types') {
       this.secondCtrl = 'description';
       this.firstFormGroup = this.formBuilder.group({
         id: [null],

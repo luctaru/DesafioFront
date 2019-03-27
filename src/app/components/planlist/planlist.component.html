@@ -1,38 +1,306 @@
 <section>
-  <div class="example-container">
-    <h2>To do</h2>
-
-    <div
-      cdkDropList
-      #planList="cdkDropList"
-      [cdkDropListData]="plan"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)"
-    >
-
-      <div
-        class="example-box"
-        *ngFor="let item of plan"
-        [ngSwitch]="item.status"
-        cdkDrag
-      >
-
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <div style="display: flex;">
-                <p>{{ item.name }}</p>
-              </div>
-            </mat-expansion-panel-header>
-
-
-        </mat-expansion-panel>
-
-
-
-      </div>
-    </div>
+  <div style="display: flex;flex: 1 0 100%; justify-content: space-around">
+    <h2>Planos</h2>
+    <button mat-icon-button>
+      <mat-icon class="mat-18">add</mat-icon>
+    </button>
   </div>
+  <mat-tab-group>
+    <mat-tab label="Todos">
+      <div class="example-container">
+        <div
+          cdkDropList
+          #planList="cdkDropList"
+          [cdkDropListData]="plan"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="example-box"
+            *ngFor="let item of plan"
+            [ngSwitch]="item.status"
+            cdkDrag
+          >
+            <div style="display: flex; flex: 1 0 50%;">
+              <button mat-icon-button (click)="showDiv = !showDiv">
+                <mat-icon class="mat-18">expand_more</mat-icon>
+              </button>
+              <div>
+                <p>{{ item.name }}</p>
+                <p *ngSwitchCase="0">Aguardando Ínicio</p>
+                <p *ngIf="item.beginData == null; else elseBlock">
+                  Sem Prazo Definido
+                </p>
+
+                <p *ngSwitchCase="1">Aberto</p>
+                <p
+                  *ngIf="
+                    item.beginData != null && item.status == 1;
+                    else elseBlock
+                  "
+                >
+                  Concluir até {{ item.endData }}
+                </p>
+
+                <p *ngSwitchCase="2">Concluído</p>
+                <p
+                  *ngIf="
+                    item.beginData != null && item.status == 2;
+                    else elseBlock
+                  "
+                >
+                  De {{ item.beginData }} até {{ item.endData }}
+                </p>
+
+                <p *ngSwitchCase="3">Suspenso</p>
+                <p
+                  *ngIf="
+                    item.beginData != null && item.status == 3;
+                    else elseBlock
+                  "
+                >
+                  Iniciado em {{ item.beginData }}
+                </p>
+
+                <p *ngSwitchCase="4">Cancelado</p>
+                <p
+                  *ngIf="
+                    item.beginData != null && item.status == 4;
+                    else elseBlock
+                  "
+                >
+                  Iniciado em {{ item.beginData }}
+                </p>
+
+                <ng-template #elseBlock2>Sem Prazo Definido</ng-template>
+              </div>
+            </div>
+
+            <div style="float: right!important; flex: 1 0 40%;">
+              <p>{{ item.user.name }}</p>
+              <p>{{ item.user.email }}</p>
+            </div>
+
+            <app-settingsbutton></app-settingsbutton>
+
+            <div ngStyle="showDiv ? {'display':'initial'} : {'display':'none'}">
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Aguardando">
+      <div class="example-container">
+        <div
+          cdkDropList
+          #planStatusZeroList="cdkDropList"
+          [cdkDropListData]="planStatusZero"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div class="example-box" *ngFor="let item of planStatusZero" cdkDrag>
+            <div style="display: flex; flex: 1 0 40%;">
+              <button mat-icon-button>
+                <mat-icon class="mat-18">expand_more</mat-icon>
+              </button>
+              <div>
+                <p>{{ item.name }}</p>
+                <p>Aguardando Ínicio</p>
+                <p>Sem Prazo Definido</p>
+              </div>
+            </div>
+
+            <div style="float: right!important; flex: 1 0 40%;">
+              <p>{{ item.user.name }}</p>
+              <p>{{ item.user.email }}</p>
+            </div>
+
+            <app-settingsbutton></app-settingsbutton>
+
+            <div id="divchilds">
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Abertos">
+      <div class="example-container">
+        <div
+          cdkDropList
+          #planStatusOneList="cdkDropList"
+          [cdkDropListData]="planStatusOne"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div class="example-box" *ngFor="let item of planStatusOne" cdkDrag>
+            <div style="display: flex; flex: 1 0 50%;">
+              <button mat-icon-button>
+                <mat-icon class="mat-18">expand_more</mat-icon>
+              </button>
+              <div>
+                <p>{{ item.name }}</p>
+                <p>Aberto</p>
+                <p>Concluir até {{ item.endData }}</p>
+              </div>
+            </div>
+
+            <div style="float: right!important; flex: 1 0 40%;">
+              <p>{{ item.user.name }}</p>
+              <p>{{ item.user.email }}</p>
+            </div>
+
+            <app-settingsbutton></app-settingsbutton>
+
+            <div id="divchilds">
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Concluídos">
+      <div class="example-container">
+        <div
+          cdkDropList
+          #planStatusTwoList="cdkDropList"
+          [cdkDropListData]="planStatusTwo"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div class="example-box" *ngFor="let item of planStatusTwo" cdkDrag>
+            <div style="display: flex; flex: 1 0 50%;">
+              <button mat-icon-button>
+                <mat-icon class="mat-18">expand_more</mat-icon>
+              </button>
+              <div>
+                <p>{{ item.name }}</p>
+                <p>Concluídos</p>
+                <p>De {{ item.beginData }} até {{ item.endData }}</p>
+              </div>
+            </div>
+
+            <div style="float: right!important; flex: 1 0 40%;">
+              <p>{{ item.user.name }}</p>
+              <p>{{ item.user.email }}</p>
+            </div>
+
+            <app-settingsbutton></app-settingsbutton>
+
+            <div id="divchilds">
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Suspensos">
+      <div class="example-container">
+        <div
+          cdkDropList
+          #planStatusThreeList="cdkDropList"
+          [cdkDropListData]="planStatusThree"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div class="example-box" *ngFor="let item of planStatusThree" cdkDrag>
+            <div style="display: flex; flex: 1 0 50%;">
+              <button mat-icon-button>
+                <mat-icon class="mat-18">expand_more</mat-icon>
+              </button>
+              <div>
+                <p>{{ item.name }}</p>
+                <p>Suspensos</p>
+                <p>Iniciado em {{ item.beginData }}</p>
+              </div>
+            </div>
+
+            <div style="float: right!important; flex: 1 0 40%;">
+              <p>{{ item.user.name }}</p>
+              <p>{{ item.user.email }}</p>
+            </div>
+
+            <app-settingsbutton></app-settingsbutton>
+
+            <div id="divchilds">
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Cancelados">
+      <div class="example-container">
+        <div
+          cdkDropList
+          #planStatusFourList="cdkDropList"
+          [cdkDropListData]="planStatusFour"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div class="example-box" *ngFor="let item of planStatusFour" cdkDrag>
+            <div style="display: flex; flex: 1 0 50%;">
+              <button mat-icon-button>
+                <mat-icon class="mat-18">expand_more</mat-icon>
+              </button>
+              <div>
+                <p>{{ item.name }}</p>
+                <p>Cancelados</p>
+                <p>Iniciado em {{ item.beginData }}</p>
+              </div>
+            </div>
+
+            <div style="float: right!important; flex: 1 0 40%;">
+              <p>{{ item.user.name }}</p>
+              <p>{{ item.user.email }}</p>
+            </div>
+
+            <app-settingsbutton></app-settingsbutton>
+
+            <div id="divchilds">
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+              <p>show yourself</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 
   <!-- <div class="example-container">
     <h2>Done</h2>

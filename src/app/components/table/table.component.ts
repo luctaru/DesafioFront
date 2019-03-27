@@ -83,7 +83,7 @@ export class TableComponent implements OnInit, OnDestroy {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
-    } else {
+    } else if (localStorage.getItem('types') === 'types') {
       this.displayedColumns = [
         'name',
         'edit',

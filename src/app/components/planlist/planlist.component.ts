@@ -10,8 +10,14 @@ import { AppService } from 'src/app/services/connection/app.service';
 export class PlanlistComponent implements OnInit, OnDestroy {
 
   plan: any;
+  planStatusZero: Array<any> = [];
+  planStatusOne: Array<any> = [];
+  planStatusTwo: Array<any> = [];
+  planStatusThree: Array<any> = [];
+  planStatusFour: Array<any> = [];
   user: any;
   plantype: any;
+  showDiv = false;
 
   done = [
     'Get up',
@@ -34,8 +40,29 @@ export class PlanlistComponent implements OnInit, OnDestroy {
   ngOnDestroy() {}
 
   render() {
-    this.service.list('plans').subscribe(e => {
+    this.service.listPlans().subscribe(e => {
       this.plan = e;
+      e.map(s => {
+        switch (s.status) {
+          case 0:
+            this.planStatusZero.push(s);
+            break;
+          case 1:
+            this.planStatusOne.push(s);
+            break;
+          case 2:
+            this.planStatusTwo.push(s);
+            break;
+          case 3:
+            this.planStatusThree.push(s);
+            break;
+          case 4:
+            this.planStatusFour.push(s);
+            break;
+          default:
+            break;
+        }
+      });
     });
     this.service.list('users').subscribe(e => {
       this.user = e;
@@ -47,6 +74,21 @@ export class PlanlistComponent implements OnInit, OnDestroy {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
+      // let aux;
+      // let auxCurrent;
+      // let x: any;
+      // for (x of event.container.data) {
+      //   if (event.previousIndex === x.id) {
+      //     aux = x;
+      //   }
+      //   if (event.currentIndex === x.id) {
+      //     auxCurrent = x;
+      //   }
+      // }
+      // this.service.updatePlan(auxCurrent, aux.id).subscribe();
+      // this.service.updatePlan(aux, auxCurrent.id).subscribe();
+      // console.log(aux);
+      // console.log(auxCurrent);
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,

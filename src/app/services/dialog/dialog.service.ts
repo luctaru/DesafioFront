@@ -26,7 +26,7 @@ export class DialogService {
           this.service.delete('users', id).subscribe(() => {
             this.emitt.emit();
           });
-        } else {
+        } else if (localStorage.getItem('types') === 'types') {
           this.service.delete('types', id).subscribe(() => {
             this.emitt.emit();
           });
