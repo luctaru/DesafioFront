@@ -33,6 +33,10 @@ export class AppService {
     }
   }
 
+  getOnePlan(e) {
+    return this.http.get<Plans>(`${this.API}/plans/${e.id}`).pipe(take(1));
+  }
+
   update(d, type) {
     let body;
     if (type === 'types') {
@@ -85,5 +89,9 @@ export class AppService {
 
   delete(type, id) {
     return this.http.delete<User>(`${this.API}/${type}/${id}`).pipe(take(1));
+  }
+
+  deletePlan(id) {
+    return this.http.delete<Plans>(`${this.API}/plans/${id}`).pipe(take(1));
   }
 }

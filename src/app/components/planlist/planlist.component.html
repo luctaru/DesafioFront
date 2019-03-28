@@ -2,10 +2,10 @@
   <div style="display: flex;flex: 1 0 100%; justify-content: space-around">
     <h2>Planos</h2>
     <button mat-icon-button>
-      <mat-icon class="mat-18">add</mat-icon>
+      <mat-icon class="mat-18" (click)="addPlan()">add</mat-icon>
     </button>
   </div>
-  <mat-tab-group>
+  <mat-tab-group style="height: 100%">
     <mat-tab label="Todos">
       <div class="example-container">
         <div
@@ -16,16 +16,17 @@
           class="example-list"
           (cdkDropListDropped)="drop($event)"
         >
+
           <div
             class="example-box"
             *ngFor="let item of plan"
             [ngSwitch]="item.status"
             cdkDrag
           >
-            <div style="display: flex; flex: 1 0 50%;">
-              <button mat-icon-button (click)="showDiv = !showDiv">
+          <div style="display: flex; flex: 1 0 50%;">
+              <!-- <button mat-icon-button>
                 <mat-icon class="mat-18">expand_more</mat-icon>
-              </button>
+              </button> -->
               <div>
                 <p>{{ item.name }}</p>
                 <p *ngSwitchCase="0">Aguardando Ínicio</p>
@@ -82,16 +83,9 @@
               <p>{{ item.user.email }}</p>
             </div>
 
-            <app-settingsbutton></app-settingsbutton>
-
-            <div ngStyle="showDiv ? {'display':'initial'} : {'display':'none'}">
-              <p>show yourself</p>
-              <p>show yourself</p>
-              <p>show yourself</p>
-              <p>show yourself</p>
-              <p>show yourself</p>
-            </div>
+            <app-settingsbutton [obj]="item"></app-settingsbutton>
           </div>
+
         </div>
       </div>
     </mat-tab>

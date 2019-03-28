@@ -3,6 +3,7 @@ export interface Plans {
     type: string;
     user: object;
     status: number;
+    parent: number;
     beginData: string;
     endData: string;
     childs: Array<any>;

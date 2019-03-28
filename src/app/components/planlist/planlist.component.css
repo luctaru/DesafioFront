@@ -3,7 +3,7 @@ section{
   flex-wrap: wrap;
   padding: 2%;
   justify-content: center;
-  height: 100%;
+  min-height: 100%;
 }
 
 .example-container {
@@ -26,8 +26,8 @@ section{
 .example-box {
   width: 100%;
 
-  max-height: 35%;
-  padding: 10px;
+  min-height: 35%;
+  padding: 0px;
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;

@@ -11,8 +11,11 @@
       "status": 0,
       "beginData": null,
       "endData": null,
+      "parent": 0,
       "childs": [
-        null
+        {
+          "name": "algo"
+        }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
@@ -37,8 +40,11 @@
       "status": 1,
       "beginData": "2019-03-30",
       "endData": "2019-04-15",
+      "parent": null,
       "childs": [
-        null
+        {
+          "name": "algo"
+        }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
@@ -61,6 +67,7 @@
       "status": 2,
       "beginData": "2019-03-30",
       "endData": "2019-04-02",
+      "parent": null,
       "childs": [
         {
           "id": 3,
@@ -74,8 +81,11 @@
           "status": 3,
           "beginData": "2019-03-30",
           "endData": "2019-04-02",
+          "parent": 2,
           "childs": [
-            null
+            {
+              "name": "algo"
+            }
           ],
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
           "stakeholders": [

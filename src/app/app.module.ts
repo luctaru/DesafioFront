@@ -21,7 +21,11 @@ import {
   MatStepperModule,
   MatTabsModule,
   MatSelectModule,
-  MatMenuModule
+  MatMenuModule,
+  MatExpansionModule,
+  MatTreeModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { PlanlistComponent } from './components/planlist/planlist.component';
@@ -30,6 +34,7 @@ import { TableComponent } from './components/table/table.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormdialogComponent } from './components/formdialog/formdialog.component';
 import { SettingsbuttonComponent } from './components/planlist/settingsbutton/settingsbutton/settingsbutton.component';
+import { PlandialogComponent } from './components/plandialog/plandialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,8 @@ import { SettingsbuttonComponent } from './components/planlist/settingsbutton/se
     TableComponent,
     DialogComponent,
     FormdialogComponent,
-    SettingsbuttonComponent
+    SettingsbuttonComponent,
+    PlandialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,13 +70,18 @@ import { SettingsbuttonComponent } from './components/planlist/settingsbutton/se
     MatStepperModule,
     MatTabsModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule,
+    MatTreeModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   entryComponents: [
     DialogComponent,
-    FormdialogComponent
+    FormdialogComponent,
+    PlandialogComponent
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

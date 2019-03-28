@@ -1,0 +1,68 @@
+<mat-horizontal-stepper
+  [linear]="isLinear"
+  #stepper
+>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Dados</ng-template>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome (O quê?)"
+          formControlName="name"
+          required
+        />
+      </mat-form-field><br />
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Tipo do Plano"
+          formControlName="type"
+          required
+        />
+      </mat-form-field><br />
+      <mat-form-field>
+          <input
+            matInput
+            placeholder="Responsável"
+            formControlName="user"
+            required
+          />
+        </mat-form-field><br />
+        <mat-form-field style="margin-right: 5%">
+            <input matInput [matDatepicker]="picker" placeholder="Data de Ínicio" formControlName="beginData">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker2" placeholder="Data de Encerramento" formControlName="endData">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              matInput
+              placeholder="Pertence ao Plano"
+              formControlName="parent"
+              required
+            />
+          </mat-form-field><br />
+      <div>
+        <button class="stepbtn" mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Conclusão</ng-template>
+    <div>
+      <h3>Deseja salvar as mudanças?</h3>
+      <button class="stepbtn" mat-button matStepperPrevious>Voltar</button>
+    </div>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Não</button>
+      <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+      <button mat-button (click)="save()">Sim</button>
+    </mat-dialog-actions>
+  </mat-step>
+</mat-horizontal-stepper>

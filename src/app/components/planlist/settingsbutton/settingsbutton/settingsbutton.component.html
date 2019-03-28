@@ -20,16 +20,16 @@
   </button>
 </mat-menu>
 <mat-menu #subMenu="matMenu">
-  <button mat-menu-item (click)="changeStatus()">
+  <button mat-menu-item (click)="changeStatus(1)">
     <mat-icon>play_arrow </mat-icon>Iniciar
   </button>
-  <button mat-menu-item (click)="changeStatus()">
+  <button mat-menu-item (click)="changeStatus(2)">
     <mat-icon>check</mat-icon>Concluído
   </button>
-  <button mat-menu-item (click)="changeStatus()">
+  <button mat-menu-item (click)="changeStatus(3)">
     <mat-icon>pause</mat-icon>Suspenso
   </button>
-  <button mat-menu-item (click)="changeStatus()">
+  <button mat-menu-item (click)="changeStatus(4)">
     <mat-icon>not_interested</mat-icon>Cancelado
   </button>
 </mat-menu>

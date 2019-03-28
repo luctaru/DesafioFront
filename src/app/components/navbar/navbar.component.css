@@ -19,3 +19,7 @@
 .example-sidenav-container{
   min-height: 100%!important;
 }
+
+mat-sidenav-content{
+  height: 100%;
+}
