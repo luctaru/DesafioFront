@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { AppService } from 'src/app/services/connection/app.service';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material';
+import { MatTreeFlatDataSource, MatTreeFlattener, MatDialog } from '@angular/material';
 import { Plans } from 'src/app/interface/plans';
 import { Subscription } from 'rxjs';
 import { DialogService } from 'src/app/services/dialog/dialog.service';
@@ -47,6 +47,7 @@ export class PlanlistComponent implements OnInit, OnDestroy {
 
   constructor(
     private service: AppService,
+    private dialog: MatDialog,
     private dialogService: DialogService
   ) {
   }
@@ -103,6 +104,7 @@ export class PlanlistComponent implements OnInit, OnDestroy {
 
   addPlan() {
     localStorage.setItem('dialogFunc', 'add');
+    this.dialogService.editPlanDialog(this.dialog, null);
   }
 
   drop(event: CdkDragDrop<string[]>) {

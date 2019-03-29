@@ -56,6 +56,7 @@ export class AppService {
   }
 
   updatePlan(d, id) {
+    console.log('func', d)
     const body = {
       name: d.name,
       type: d.type,
@@ -69,6 +70,23 @@ export class AppService {
       cost: d.cost
     };
     return this.http.put(`${this.API}/plans/${id}`, body).pipe(take(1));
+  }
+
+  insertPlan(d) {
+    console.log('func', d)
+    const body = {
+      name: d.name,
+      type: d.type,
+      user: d.user,
+      status: 0,
+      beginData: d.beginData,
+      endData: d.endData,
+      childs: d.childs,
+      description: d.description,
+      stakeholders: d.stakeholders,
+      cost: d.cost
+    };
+    return this.http.post(`${this.API}/plans`, body).pipe(take(1));
   }
 
   insert(d, type) {

@@ -3,7 +3,7 @@
   #stepper
 >
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" >
       <ng-template matStepLabel>Dados</ng-template>
       <mat-form-field>
         <input
@@ -26,6 +26,7 @@
             matInput
             placeholder="Responsável"
             formControlName="user"
+            [value]="userObj?.name"
             required
           />
         </mat-form-field><br />
@@ -38,12 +39,26 @@
             <input matInput [matDatepicker]="picker2" placeholder="Data de Encerramento" formControlName="endData">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
+        </mat-form-field><br />
         <mat-form-field>
             <input
               matInput
               placeholder="Pertence ao Plano"
               formControlName="parent"
+            />
+          </mat-form-field><br />
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Descrição"
+              formControlName="description"
+            />
+          </mat-form-field><br />
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Custo"
+              formControlName="cost"
               required
             />
           </mat-form-field><br />

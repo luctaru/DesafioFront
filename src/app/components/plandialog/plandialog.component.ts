@@ -15,6 +15,7 @@ export class PlandialogComponent implements OnInit {
   firstFormGroup: FormGroup;
   dialF = localStorage.getItem('dialogFunc');
   label = localStorage.getItem('types');
+  userObj: object;
 
   constructor(
     private service: AppService,
@@ -31,8 +32,8 @@ export class PlandialogComponent implements OnInit {
       beginData: [null],
       endData: [null],
       parent: [null],
-      description: ['', Validators.required],
-      stakeholders: ['', Validators.required],
+      description: [null],
+      stakeholders: [null],
       cost: ['', Validators.required],
       id: [null]
     });
@@ -44,11 +45,12 @@ export class PlandialogComponent implements OnInit {
 
   insertData(e) {
     this.service.getOnePlan(e).subscribe((d) => {
-      console.log(d.user.name);
+      this.userObj = d.user;
+      console.log();
       const body = {
         name: d.name,
         type: d.type,
-        user: d.user.name,
+        user: d.user,
         status: d.status,
         beginData: d.beginData,
         endData: d.endData,
@@ -64,6 +66,7 @@ export class PlandialogComponent implements OnInit {
   }
 
   save() {
+    console.log(this.firstFormGroup.value);
     this.dialogRef.close({ data: this.firstFormGroup.value, closed: true });
   }
 }

@@ -92,21 +92,21 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // if (result.closed) {
-      //   console.log(result.closed);
-      //   if (result.data.id !== null) {
+      if (result.closed) {
+        console.log(result.closed);
+        if (result.data.id !== null) {
 
-      //     this.service.update(result.data, localStorage.getItem('types')).subscribe(() => {
-      //       this.emitt.emit();
-      //     });
-      //   } else {
-      //     this.service.insert(result.data, localStorage.getItem('types')).subscribe(() => {
-      //       this.emitt.emit();
-      //     });
-      //   }
-      // } else {
-      //   alert('Canceled');
-      // }
+          this.service.updatePlan(result.data, result.data.id).subscribe(() => {
+            this.emitt.emit();
+          });
+        } else {
+          this.service.insertPlan(result.data).subscribe(() => {
+            this.emitt.emit();
+          });
+        }
+      } else {
+        alert('Canceled');
+      }
     });
   }
 }

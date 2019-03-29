@@ -1,22 +1,16 @@
 {
   "plans": [
     {
-      "name": "Plano 1",
+      "name": "Plano 5",
       "type": "Tipo 1",
       "user": {
         "id": 0,
         "name": "Usuario 1",
         "email": "usu1@email.com"
       },
-      "status": 0,
+      "status": 1,
       "beginData": null,
       "endData": null,
-      "parent": 0,
-      "childs": [
-        {
-          "name": "algo"
-        }
-      ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
         {
