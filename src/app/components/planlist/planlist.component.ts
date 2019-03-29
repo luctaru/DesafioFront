@@ -109,21 +109,22 @@ export class PlanlistComponent implements OnInit, OnDestroy {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      // let aux;
-      // let auxCurrent;
-      // let x: any;
-      // for (x of event.container.data) {
-      //   if (event.previousIndex === x.id) {
-      //     aux = x;
-      //   }
-      //   if (event.currentIndex === x.id) {
-      //     auxCurrent = x;
-      //   }
-      // }
-      // this.service.updatePlan(auxCurrent, aux.id).subscribe();
-      // this.service.updatePlan(aux, auxCurrent.id).subscribe();
-      // console.log(aux);
-      // console.log(auxCurrent);
+      let aux;
+      let auxCurrent;
+      let x: any;
+      for (x of event.container.data) {
+        if (event.previousIndex === x.id) {
+          aux = x;
+        }
+        if (event.currentIndex === x.id) {
+          auxCurrent = x;
+        }
+      }
+      this.service.updatePlan(auxCurrent, aux.id).subscribe(() => {
+        this.service.updatePlan(aux, auxCurrent.id).subscribe();
+      });
+
+
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,

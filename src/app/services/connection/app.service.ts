@@ -56,7 +56,6 @@ export class AppService {
   }
 
   updatePlan(d, id) {
-    console.log('func', d)
     const body = {
       name: d.name,
       type: d.type,
@@ -73,7 +72,6 @@ export class AppService {
   }
 
   insertPlan(d) {
-    console.log('func', d)
     const body = {
       name: d.name,
       type: d.type,

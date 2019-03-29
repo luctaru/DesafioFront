@@ -16,82 +16,65 @@
           class="example-list"
           (cdkDropListDropped)="drop($event)"
         >
-
           <div
             class="example-box"
             *ngFor="let item of plan"
             [ngSwitch]="item.status"
             cdkDrag
           >
-          <div style="display: flex; flex: 1 0 50%;">
-              <!-- <button mat-icon-button>
+            <mat-expansion-panel (click)="$event.stopPropagation()">
+              <mat-expansion-panel-header>
+                <div style="display: flex; flex: 1 0 50%;">
+                  <!-- <button mat-icon-button>
                 <mat-icon class="mat-18">expand_more</mat-icon>
               </button> -->
-              <div>
-                <p>{{ item.name }}</p>
-                <p *ngSwitchCase="0">Aguardando Ínicio</p>
-                <p *ngIf="item.beginData == null; else elseBlock">
-                  Sem Prazo Definido
-                </p>
+                  <div *ngSwitchCase="0">
+                    <p>{{ item.name }}</p>
+                    <p>Aguardando Ínicio</p>
+                    <p>Sem Prazo Definido</p>
+                  </div>
 
-                <p *ngSwitchCase="1">Aberto</p>
-                <p
-                  *ngIf="
-                    item.beginData != null && item.status == 1;
-                    else elseBlock
-                  "
+                  <div *ngSwitchCase="1">
+                    <p>{{ item.name }}</p>
+                    <p>Aberto</p>
+                    <p *ngIf="item.beginData != null; else elseBlock">Concluir até {{ item.endData  | date:'dd/MM/yyyy' }}</p>
+                  </div>
+                  <div *ngSwitchCase="2">
+                    <p>{{ item.name }}</p>
+                    <p>Concluído</p>
+                    <p *ngIf="item.beginData != null; else elseBlock">De {{ item.beginData  | date:'dd/MM/yyyy' }} até {{ item.endData  | date:'dd/MM/yyyy' }}</p>
+                  </div>
+                  <div *ngSwitchCase="3">
+                    <p>{{ item.name }}</p>
+                    <p>Suspenso</p>
+                    <p *ngIf="item.beginData != null; else elseBlock">Iniciado em {{ item.beginData  | date:'dd/MM/yyyy' }}</p>
+                  </div>
+                  <div *ngSwitchCase="4">
+                    <p>{{ item.name }}</p>
+                    <p>Cancelado</p>
+                    <p *ngIf="item.beginData != null; else elseBlock">Iniciado em {{ item.beginData  | date:'dd/MM/yyyy' }}</p>
+                  </div>
+                  <ng-template #elseBlock>Sem Prazo</ng-template>
+                </div>
+
+                <div
+                  class="userdiv"
+                  style="float: right!important; flex: 1 0 40%;"
                 >
-                  Concluir até {{ item.endData }}
-                </p>
+                  <app-userdiv [userid]=item.user></app-userdiv>
+                </div>
 
-                <p *ngSwitchCase="2">Concluído</p>
-                <p
-                  *ngIf="
-                    item.beginData != null && item.status == 2;
-                    else elseBlock
-                  "
-                >
-                  De {{ item.beginData }} até {{ item.endData }}
-                </p>
-
-                <p *ngSwitchCase="3">Suspenso</p>
-                <p
-                  *ngIf="
-                    item.beginData != null && item.status == 3;
-                    else elseBlock
-                  "
-                >
-                  Iniciado em {{ item.beginData }}
-                </p>
-
-                <p *ngSwitchCase="4">Cancelado</p>
-                <p
-                  *ngIf="
-                    item.beginData != null && item.status == 4;
-                    else elseBlock
-                  "
-                >
-                  Iniciado em {{ item.beginData }}
-                </p>
-
-                <ng-template #elseBlock2>Sem Prazo Definido</ng-template>
-              </div>
-            </div>
-
-            <div class="userdiv" style="float: right!important; flex: 1 0 40%;">
-              <p>{{ item.user.name }}</p>
-              <p>{{ item.user.email }}</p>
-            </div>
-
-            <app-settingsbutton [obj]="item"></app-settingsbutton>
+                <app-settingsbutton [obj]="item"></app-settingsbutton>
+              </mat-expansion-panel-header>
+              <p>exemplo</p>
+            </mat-expansion-panel>
           </div>
-
         </div>
       </div>
     </mat-tab>
 
     <mat-tab label="Aguardando">
-      <div class="example-container">
+      <!-- <div class="example-container">
         <div
           cdkDropList
           #planStatusZeroList="cdkDropList"
@@ -128,11 +111,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-tab>
 
     <mat-tab label="Abertos">
-      <div class="example-container">
+      <!-- <div class="example-container">
         <div
           cdkDropList
           #planStatusOneList="cdkDropList"
@@ -169,11 +152,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-tab>
 
     <mat-tab label="Concluídos">
-      <div class="example-container">
+      <!-- <div class="example-container">
         <div
           cdkDropList
           #planStatusTwoList="cdkDropList"
@@ -210,11 +193,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-tab>
 
     <mat-tab label="Suspensos">
-      <div class="example-container">
+      <!-- <div class="example-container">
         <div
           cdkDropList
           #planStatusThreeList="cdkDropList"
@@ -251,11 +234,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-tab>
 
     <mat-tab label="Cancelados">
-      <div class="example-container">
+      <!-- <div class="example-container">
         <div
           cdkDropList
           #planStatusFourList="cdkDropList"
@@ -292,7 +275,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-tab>
   </mat-tab-group>
 

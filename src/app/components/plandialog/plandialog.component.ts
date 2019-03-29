@@ -4,6 +4,7 @@ import { AppService } from 'src/app/services/connection/app.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormdialogComponent } from '../formdialog/formdialog.component';
 import { Plans } from 'src/app/interface/plans';
+import { User } from 'src/app/interface/user';
 
 @Component({
   selector: 'app-plandialog',
@@ -15,7 +16,11 @@ export class PlandialogComponent implements OnInit {
   firstFormGroup: FormGroup;
   dialF = localStorage.getItem('dialogFunc');
   label = localStorage.getItem('types');
-  userObj: object;
+  userObj: any;
+  typeArray: Array<User>;
+  userArray: Array<User>;
+  planArray: Array<Plans>;
+  temp: object;
 
   constructor(
     private service: AppService,
@@ -25,6 +30,7 @@ export class PlandialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.data.body);
     this.firstFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
       type: ['', Validators.required],
@@ -39,34 +45,44 @@ export class PlandialogComponent implements OnInit {
     });
 
     if (this.dialF === 'edit') {
-      this.insertData(this.data.body);
+      this.firstFormGroup.patchValue(this.data.body);
     }
+
+    this.typeList();
+    this.userList();
+    this.planList();
   }
 
-  insertData(e) {
-    this.service.getOnePlan(e).subscribe((d) => {
-      this.userObj = d.user;
-      console.log();
-      const body = {
-        name: d.name,
-        type: d.type,
-        user: d.user,
-        status: d.status,
-        beginData: d.beginData,
-        endData: d.endData,
-        parent: d.parent,
-        childs: d.childs,
-        description: d.description,
-        stakeholders: d.stakeholders,
-        cost: d.cost,
-        id: d.id,
-      };
-      this.firstFormGroup.patchValue(body);
+  typeList() {
+    this.service.list('types').subscribe(e => {
+      this.typeArray = e;
+    });
+  }
+
+  userList() {
+    this.service.list('users').subscribe(e => {
+      this.userArray = e;
+    });
+  }
+
+  planList() {
+    this.service.listPlans().subscribe(e => {
+      this.planArray = e;
     });
   }
 
   save() {
-    console.log(this.firstFormGroup.value);
-    this.dialogRef.close({ data: this.firstFormGroup.value, closed: true });
+    console.log('data', this.data);
+    if (this.data.body !== null) {
+      this.temp = {
+        ...this.firstFormGroup.value,
+        status: this.data.body.status
+      };
+    } else {
+      this.temp = this.firstFormGroup.value;
+    }
+
+    console.log(this.temp);
+    this.dialogRef.close({ data: this.temp, closed: true });
   }
 }

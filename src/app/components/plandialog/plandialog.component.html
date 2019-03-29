@@ -1,9 +1,6 @@
-<mat-horizontal-stepper
-  [linear]="isLinear"
-  #stepper
->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup" >
+    <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Dados</ng-template>
       <mat-form-field>
         <input
@@ -11,57 +8,70 @@
           placeholder="Nome (O quê?)"
           formControlName="name"
           required
+        /> </mat-form-field
+      ><br />
+      <mat-form-field>
+        <mat-select  formControlName="type" required placeholder="Tipo do Plano">
+          <mat-option *ngFor="let typ of typeArray" [value]="typ.name">
+            {{ typ.name }}
+          </mat-option>
+        </mat-select> </mat-form-field
+      ><br />
+      <mat-form-field>
+        <mat-select formControlName="user" required placeholder="Responsável" selected="data.body.user">
+          <mat-option *ngFor="let u of userArray" [value]="u.id">
+            {{ u.name }}
+          </mat-option>
+        </mat-select></mat-form-field
+      ><br />
+      <mat-form-field style="margin-right: 5%">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Data de Ínicio"
+          formControlName="beginData"
         />
-      </mat-form-field><br />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
       <mat-form-field>
         <input
           matInput
-          placeholder="Tipo do Plano"
-          formControlName="type"
-          required
+          [matDatepicker]="picker2"
+          placeholder="Data de Encerramento"
+          formControlName="endData"
         />
-      </mat-form-field><br />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker> </mat-form-field
+      ><br />
       <mat-form-field>
-          <input
-            matInput
-            placeholder="Responsável"
-            formControlName="user"
-            [value]="userObj?.name"
-            required
-          />
-        </mat-form-field><br />
-        <mat-form-field style="margin-right: 5%">
-            <input matInput [matDatepicker]="picker" placeholder="Data de Ínicio" formControlName="beginData">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker2" placeholder="Data de Encerramento" formControlName="endData">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field><br />
-        <mat-form-field>
-            <input
-              matInput
-              placeholder="Pertence ao Plano"
-              formControlName="parent"
-            />
-          </mat-form-field><br />
-          <mat-form-field>
-            <input
-              matInput
-              placeholder="Descrição"
-              formControlName="description"
-            />
-          </mat-form-field><br />
-          <mat-form-field>
-            <input
-              matInput
-              placeholder="Custo"
-              formControlName="cost"
-              required
-            />
-          </mat-form-field><br />
+        <mat-select
+          formControlName="parent"
+          placeholder="Pertence ao Plano"
+        >
+          <mat-option *ngFor="let p of planArray" [value]="p.name">
+            {{ p.name }}
+          </mat-option>
+        </mat-select> </mat-form-field
+      ><br />
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Descrição"
+          formControlName="description"
+        /> </mat-form-field
+      ><br />
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Custo"
+          formControlName="cost"
+          required
+        /> </mat-form-field
+      ><br />
       <div>
         <button class="stepbtn" mat-button matStepperNext>Próximo</button>
       </div>

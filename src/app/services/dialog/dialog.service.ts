@@ -19,6 +19,7 @@ export class DialogService {
 
   delDialog(dialog, id): void {
     const dialogRef = dialog.open(DialogComponent, {
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -43,6 +44,7 @@ export class DialogService {
 
   changeDialog(dialog, obj, stat) {
     const dialogRef = dialog.open(DialogComponent, {
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -60,6 +62,7 @@ export class DialogService {
 
   editDialog(dialog, obj) {
     const dialogRef = dialog.open(FormdialogComponent, {
+      disableClose: true,
       data: {
         body: obj
       }
@@ -85,7 +88,9 @@ export class DialogService {
   }
 
   editPlanDialog(dialog, obj) {
+    console.log('editDialog', obj);
     const dialogRef = dialog.open(PlandialogComponent, {
+      disableClose: true,
       data: {
         body: obj
       }
@@ -93,7 +98,7 @@ export class DialogService {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.closed) {
-        console.log(result.closed);
+        console.log('dsasdda', result.data);
         if (result.data.id !== null) {
 
           this.service.updatePlan(result.data, result.data.id).subscribe(() => {

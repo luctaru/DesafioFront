@@ -35,6 +35,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { FormdialogComponent } from './components/formdialog/formdialog.component';
 import { SettingsbuttonComponent } from './components/planlist/settingsbutton/settingsbutton/settingsbutton.component';
 import { PlandialogComponent } from './components/plandialog/plandialog.component';
+import { UserdivComponent } from './components/planlist/userdiv/userdiv.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PlandialogComponent } from './components/plandialog/plandialog.componen
     DialogComponent,
     FormdialogComponent,
     SettingsbuttonComponent,
-    PlandialogComponent
+    PlandialogComponent,
+    UserdivComponent
   ],
   imports: [
     BrowserModule,

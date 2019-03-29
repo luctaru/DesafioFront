@@ -25,9 +25,8 @@ section{
 
 .example-box {
   width: 100%;
-
-  max-height: 35%;
-  padding: 0px;
+  height: auto;
+  padding: 5px;
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
@@ -48,6 +47,16 @@ mat-tab-group{
 
 mat-tab{
   min-height: 100%!important;
+}
+
+mat-expansion-panel{
+  width: 100%;
+  background-color: red;
+}
+
+mat-expansion-panel-header{
+  height: auto!important;
+  background-color: green;
 }
 
 #divchilds{

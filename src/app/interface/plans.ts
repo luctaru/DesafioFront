@@ -1,4 +1,5 @@
 export interface Plans {
+  id: number;
     name: string;
     type: string;
     user: object;
@@ -10,5 +11,4 @@ export interface Plans {
     description: string;
     stakeholders: Array<any>;
     cost: number;
-    id: number;
 }
