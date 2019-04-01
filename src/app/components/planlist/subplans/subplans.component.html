@@ -1,0 +1,55 @@
+<div *ngIf="arraySub.length > 0; else elseDiv" cdkDropList #planList="cdkDropList" [cdkDropListData]="arraySub" [cdkDropListConnectedTo]="[doneList]"
+  class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let item of arraySub" [ngSwitch]="item.status" cdkDrag>
+
+    <mat-expansion-panel (click)="$event.stopPropagation()" hideToggle="true" #example>
+
+      <mat-expansion-panel-header>
+        <mat-icon *ngIf="!example.expanded">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="example.expanded">keyboard_arrow_up</mat-icon>
+        <div style="display: flex; flex: 1 0 40%;">
+          <!-- <button mat-icon-button>
+                <mat-icon class="mat-18">expand_more</mat-icon>
+              </button> -->
+          <div *ngSwitchCase="0">
+            <p>{{ item?.name }}</p>
+            <p>Aguardando Ínicio</p>
+            <p>Sem Prazo Definido</p>
+          </div>
+
+          <div *ngSwitchCase="1">
+              <p>{{ item?.name }}</p>
+            <p>Aberto</p>
+            <p *ngIf="item.beginData != null; else elseBlock">Concluir até {{ item.endData  | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <div *ngSwitchCase="2">
+              <p>{{ item?.name }}</p>
+            <p>Concluído</p>
+            <p *ngIf="item.beginData != null; else elseBlock">De {{ item.beginData  | date:'dd/MM/yyyy' }} até
+              {{ item.endData  | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <div *ngSwitchCase="3">
+              <p>{{ item?.name }}</p>
+            <p>Suspenso</p>
+            <p *ngIf="item.beginData != null; else elseBlock">Iniciado em {{ item.beginData  | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <div *ngSwitchCase="4">
+            <p>{{ item?.name }}</p>
+            <p>Cancelado</p>
+            <p *ngIf="item.beginData != null; else elseBlock">Iniciado em {{ item.beginData  | date:'dd/MM/yyyy' }}</p>
+          </div>
+          <ng-template #elseBlock>Sem Prazo</ng-template>
+        </div>
+
+        <div class="userdiv" style="float: right!important; flex: 1 0 40%; margin: auto">
+          <app-userdiv [userid]=item.user></app-userdiv>
+        </div>
+
+        <app-settingsbutton [obj]="item"></app-settingsbutton>
+      </mat-expansion-panel-header>
+      <app-subplans [itemid]="item.id" [sub]="arraySub"></app-subplans>
+    </mat-expansion-panel>
+  </div>
+</div>
+
+<ng-template #elseDiv>Este plano não possui subplanos</ng-template>

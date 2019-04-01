@@ -61,6 +61,7 @@ export class AppService {
       type: d.type,
       user: d.user,
       status: d.status,
+      parent: d.parent,
       beginData: d.beginData,
       endData: d.endData,
       childs: d.childs,
@@ -71,15 +72,33 @@ export class AppService {
     return this.http.put(`${this.API}/plans/${id}`, body).pipe(take(1));
   }
 
+  updateSubPlan(d) {
+    const body = {
+      name: d.name,
+      type: d.type,
+      user: d.user,
+      status: d.status,
+      parent: d.parent,
+      beginData: d.beginData,
+      endData: d.endData,
+      childs: d.childs,
+      description: d.description,
+      stakeholders: d.stakeholders,
+      cost: d.cost
+    };
+    return this.http.put(`${this.API}/plans/${d.id}`, body).pipe(take(1));
+  }
+
   insertPlan(d) {
     const body = {
       name: d.name,
       type: d.type,
       user: d.user,
       status: 0,
+      parent: d.parent,
+      childs: null,
       beginData: d.beginData,
       endData: d.endData,
-      childs: d.childs,
       description: d.description,
       stakeholders: d.stakeholders,
       cost: d.cost

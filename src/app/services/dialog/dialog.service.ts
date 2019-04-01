@@ -4,6 +4,7 @@ import { AppService } from '../connection/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormdialogComponent } from 'src/app/components/formdialog/formdialog.component';
 import { PlandialogComponent } from 'src/app/components/plandialog/plandialog.component';
+import { Plans } from 'src/app/interface/plans';
 
 
 @Injectable({
@@ -12,10 +13,13 @@ import { PlandialogComponent } from 'src/app/components/plandialog/plandialog.co
 export class DialogService {
 
   public emitt = new EventEmitter();
+  plans: Array<Plans>;
 
   constructor(private service: AppService, private route: Router) {
-
-   }
+    this.service.listPlans().subscribe(e => {
+      this.plans = e;
+    });
+  }
 
   delDialog(dialog, id): void {
     const dialogRef = dialog.open(DialogComponent, {
@@ -70,7 +74,6 @@ export class DialogService {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.closed) {
-        console.log(result.closed);
         if (result.data.id !== null) {
 
           this.service.update(result.data, localStorage.getItem('types')).subscribe(() => {
@@ -88,7 +91,6 @@ export class DialogService {
   }
 
   editPlanDialog(dialog, obj) {
-    console.log('editDialog', obj);
     const dialogRef = dialog.open(PlandialogComponent, {
       disableClose: true,
       data: {
@@ -98,7 +100,7 @@ export class DialogService {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.closed) {
-        console.log('dsasdda', result.data);
+
         if (result.data.id !== null) {
 
           this.service.updatePlan(result.data, result.data.id).subscribe(() => {

@@ -1,63 +1,137 @@
 {
   "plans": [
     {
-      "name": "Plano 5",
-      "type": "Tipo 1",
-      "user": 0,
-      "status": 1,
-      "beginData": null,
-      "endData": null,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "stakeholders": [
-        {
-          "userid": 2
-        },
-        {
-          "userid": 3
-        }
-      ],
-      "cost": 20,
-      "id": 0
-    },
-    {
       "name": "Plano 2",
       "type": "Tipo 3",
       "user": 2,
       "status": 2,
+      "parent": null,
       "beginData": "2019-03-30",
       "endData": "2019-04-15",
+      "childs": [
+        3,
+        4
+      ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "stakeholders": [
-        {
-          "userid": 1
-        }
+        1
       ],
       "cost": 30,
-      "id": 1
-    },
-    {
-      "name": "czxcz",
-      "type": "Tipo 2",
-      "user": 1,
-      "status": 0,
-      "beginData": "2019-03-29T03:00:00.000Z",
-      "endData": "2019-03-30T03:00:00.000Z",
-      "description": "wdwqe",
-      "stakeholders": null,
-      "cost": "321312",
-      "id": 2
+      "id": 0
     },
     {
       "name": "mudakct",
       "type": "Tipo 2",
       "user": 3,
       "status": 3,
+      "parent": null,
+      "beginData": "2019-03-29T03:00:00.000Z",
+      "endData": "2019-03-30T03:00:00.000Z",
+      "childs": [
+        5
+      ],
+      "description": "wdwqe",
+      "stakeholders": null,
+      "cost": "321312",
+      "id": 1
+    },
+    {
+      "name": "subplano 2",
+      "type": "Tipo 2",
+      "user": 3,
+      "status": 3,
+      "parent": 0,
+      "childs": null,
       "beginData": "2019-03-29T03:00:00.000Z",
       "endData": "2019-03-30T03:00:00.000Z",
       "description": "wdwqe",
       "stakeholders": null,
       "cost": "321312",
       "id": 3
+    },
+    {
+      "name": "subplano 1",
+      "type": "Tipo 2",
+      "user": 3,
+      "status": 3,
+      "parent": 0,
+      "childs": null,
+      "beginData": "2019-03-29T03:00:00.000Z",
+      "endData": "2019-03-30T03:00:00.000Z",
+      "description": "wdwqe",
+      "stakeholders": null,
+      "cost": "321312",
+      "id": 4
+    },
+    {
+      "name": "subkct",
+      "type": "Tipo 2",
+      "user": 1,
+      "status": 0,
+      "parent": 3,
+      "childs": null,
+      "beginData": null,
+      "endData": null,
+      "description": null,
+      "stakeholders": [
+        1,
+        2
+      ],
+      "cost": "",
+      "id": 5
+    },
+    {
+      "name": "dasdsa",
+      "type": "Tipo 2",
+      "user": 1,
+      "status": 0,
+      "parent": 2,
+      "childs": null,
+      "beginData": null,
+      "endData": null,
+      "description": null,
+      "stakeholders": [
+        1,
+        2
+      ],
+      "cost": "12",
+      "id": 7
+    },
+    {
+      "name": "plano 3",
+      "type": "Tipo 2",
+      "user": 1,
+      "status": 0,
+      "parent": null,
+      "beginData": null,
+      "endData": null,
+      "childs": [
+        9
+      ],
+      "description": null,
+      "stakeholders": [
+        1,
+        2
+      ],
+      "cost": "213112321",
+      "id": 8
+    },
+    {
+      "name": "sub 3",
+      "type": "Tipo 2",
+      "user": 1,
+      "status": 0,
+      "parent": 8,
+      "childs": null,
+      "beginData": null,
+      "endData": null,
+      "description": null,
+      "stakeholders": [
+        1,
+        2
+      ],
+      "cost": "2321",
+      "id": 9
     }
   ],
   "users": [

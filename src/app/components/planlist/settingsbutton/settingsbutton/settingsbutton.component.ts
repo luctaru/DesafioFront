@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DialogService } from 'src/app/services/dialog/dialog.service';
 import { Plans } from 'src/app/interface/plans';
+import { AppService } from 'src/app/services/connection/app.service';
 
 @Component({
   selector: 'app-settingsbutton',
@@ -11,14 +12,18 @@ import { Plans } from 'src/app/interface/plans';
 export class SettingsbuttonComponent implements OnInit {
 
  @Input() obj: Plans;
+ plans: Array<any>;
 
   constructor(
     private dialog: MatDialog,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private service: AppService
   ) { }
 
   ngOnInit() {
-
+    this.service.listPlans().subscribe(e => {
+      this.plans = e;
+    });
   }
 
   editPlan() {

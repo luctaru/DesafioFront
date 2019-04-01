@@ -3,91 +3,66 @@
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Dados</ng-template>
       <mat-form-field>
-        <input
-          matInput
-          placeholder="Nome (O quê?)"
-          formControlName="name"
-          required
-        /> </mat-form-field
-      ><br />
+        <input matInput placeholder="Nome (O quê?)" formControlName="name" required /> </mat-form-field><br />
       <mat-form-field>
-        <mat-select  formControlName="type" required placeholder="Tipo do Plano">
+        <mat-select formControlName="type" required placeholder="Tipo do Plano">
           <mat-option *ngFor="let typ of typeArray" [value]="typ.name">
             {{ typ.name }}
           </mat-option>
-        </mat-select> </mat-form-field
-      ><br />
+        </mat-select>
+      </mat-form-field><br />
       <mat-form-field>
         <mat-select formControlName="user" required placeholder="Responsável" selected="data.body.user">
           <mat-option *ngFor="let u of userArray" [value]="u.id">
             {{ u.name }}
           </mat-option>
-        </mat-select></mat-form-field
-      ><br />
+        </mat-select>
+      </mat-form-field><br />
       <mat-form-field style="margin-right: 5%">
-        <input
-          matInput
-          [matDatepicker]="picker"
-          placeholder="Data de Ínicio"
-          formControlName="beginData"
-        />
+        <input matInput [matDatepicker]="picker" placeholder="Data de Ínicio" formControlName="beginData" />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <mat-form-field>
-        <input
-          matInput
-          [matDatepicker]="picker2"
-          placeholder="Data de Encerramento"
-          formControlName="endData"
-        />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="picker2"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker> </mat-form-field
-      ><br />
+        <input matInput [matDatepicker]="picker2" placeholder="Data de Encerramento" formControlName="endData" />
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field><br />
       <mat-form-field>
-        <mat-select
-          formControlName="parent"
-          placeholder="Pertence ao Plano"
-        >
-          <mat-option *ngFor="let p of planArray" [value]="p.name">
+        <mat-select formControlName="parent" placeholder="Pertence ao Plano">
+          <mat-option value="null">Nenhum</mat-option>
+          <mat-option *ngFor="let p of planArray" [value]="p.id">
             {{ p.name }}
           </mat-option>
-        </mat-select> </mat-form-field
-      ><br />
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Descrição"
-          formControlName="description"
-        /> </mat-form-field
-      ><br />
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Custo"
-          formControlName="cost"
-          required
-        /> </mat-form-field
-      ><br />
-      <div>
-        <button class="stepbtn" mat-button matStepperNext>Próximo</button>
-      </div>
+        </mat-select>
+      </mat-form-field><br />
+
     </form>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button class="stepbtn" mat-button matStepperNext><mat-icon>keyboard_arrow_right</mat-icon>Próximo</button>
+    </mat-dialog-actions>
   </mat-step>
 
-  <mat-step>
-    <ng-template matStepLabel>Conclusão</ng-template>
-    <div>
-      <h3>Deseja salvar as mudanças?</h3>
-      <button class="stepbtn" mat-button matStepperPrevious>Voltar</button>
-    </div>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Detalhes</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Descrição" formControlName="description" /> </mat-form-field><br />
+        <mat-form-field>
+            <mat-select formControlName="stakeholders" required placeholder="Pessoas Interessadas" multiple>
+                <mat-option *ngFor="let u of userArray" [value]="u.id">
+                  {{ u.name }}
+                </mat-option>
+              </mat-select>
+        </mat-form-field><br />
+      <mat-form-field>
+        <input matInput placeholder="Custo" formControlName="cost" required /> </mat-form-field><br />
+    </form>
+    <button class="stepbtn" mat-button matStepperPrevious><mat-icon>keyboard_arrow_left</mat-icon>Voltar</button>
     <mat-dialog-actions>
-      <button mat-button mat-dialog-close>Não</button>
-      <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-      <button mat-button (click)="save()">Sim</button>
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button mat-button (click)="save()">Salvar</button>
     </mat-dialog-actions>
   </mat-step>
 </mat-horizontal-stepper>

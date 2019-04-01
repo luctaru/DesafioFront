@@ -34,7 +34,8 @@ import { DialogService } from 'src/app/services/dialog/dialog.service';
 
 export class PlanlistComponent implements OnInit, OnDestroy {
 
-  plan: any;
+  plan: Array<any> = [];
+  planChilds: Array<any> = [];
   planStatusZero: Array<any> = [];
   planStatusOne: Array<any> = [];
   planStatusTwo: Array<any> = [];
@@ -65,8 +66,12 @@ export class PlanlistComponent implements OnInit, OnDestroy {
 
   render() {
     this.service.listPlans().subscribe(e => {
-      this.plan = e;
       e.map(s => {
+        if (s.parent === null) {
+          this.plan.push(s);
+        } else {
+          this.planChilds.push(s);
+        }
         switch (s.status) {
           case 0:
             this.planStatusZero.push(s);
@@ -94,10 +99,13 @@ export class PlanlistComponent implements OnInit, OnDestroy {
     this.service.list('types').subscribe(e => {
       this.plantype = e;
     });
+    console.log(this.plan);
   }
 
   listen() {
     this.subscription = this.dialogService.emitt.subscribe(() => {
+      this.plan = [];
+      this.planChilds = [];
       this.render();
     });
   }
@@ -120,17 +128,18 @@ export class PlanlistComponent implements OnInit, OnDestroy {
           auxCurrent = x;
         }
       }
+      console.log('entrou', aux);
+      console.log(auxCurrent);
       this.service.updatePlan(auxCurrent, aux.id).subscribe(() => {
-        this.service.updatePlan(aux, auxCurrent.id).subscribe();
+        this.service.updatePlan(aux, auxCurrent.id).subscribe(() => {
+        });
       });
-
-
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
     }
   }
 }

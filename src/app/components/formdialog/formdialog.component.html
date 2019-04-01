@@ -1,29 +1,21 @@
-<mat-horizontal-stepper
-  [linear]="isLinear"
-  #stepper
->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Dados</ng-template>
       <mat-form-field>
-        <input
-          matInput
-          placeholder="Nome"
-          formControlName="name"
-          required
-        />
+        <input matInput placeholder="Nome" formControlName="name" required />
       </mat-form-field><br />
       <mat-form-field>
-        <input
-          matInput
-          [placeholder]="label == 'types' ? 'Descrição' : 'E-mail'"
-          [formControlName]="secondCtrl"
-          required
-        />
+        <input matInput [placeholder]="label == 'types' ? 'Descrição' : 'E-mail'" [formControlName]="secondCtrl"
+          required />
       </mat-form-field>
-      <div>
-        <button class="stepbtn" mat-button matStepperNext>Próximo</button>
-      </div>
+      <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button class="stepbtn" mat-button matStepperNext>
+          <mat-icon>keyboard_arrow_right</mat-icon>Próximo
+        </button>
+      </mat-dialog-actions>
+
     </form>
   </mat-step>
 
@@ -31,7 +23,9 @@
     <ng-template matStepLabel>Conclusão</ng-template>
     <div>
       <h3>Deseja salvar as mudanças?</h3>
-      <button class="stepbtn" mat-button matStepperPrevious>Voltar</button>
+      <button class="stepbtn" mat-button matStepperPrevious>
+        <mat-icon>keyboard_arrow_left</mat-icon>Voltar
+      </button>
     </div>
     <mat-dialog-actions>
       <button mat-button mat-dialog-close>Não</button>

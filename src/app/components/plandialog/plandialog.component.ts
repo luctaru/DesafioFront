@@ -5,6 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormdialogComponent } from '../formdialog/formdialog.component';
 import { Plans } from 'src/app/interface/plans';
 import { User } from 'src/app/interface/user';
+import { template } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-plandialog',
@@ -14,13 +15,14 @@ import { User } from 'src/app/interface/user';
 export class PlandialogComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
   dialF = localStorage.getItem('dialogFunc');
   label = localStorage.getItem('types');
   userObj: any;
   typeArray: Array<User>;
   userArray: Array<User>;
   planArray: Array<Plans>;
-  temp: object;
+  temp: Plans;
 
   constructor(
     private service: AppService,
@@ -30,7 +32,6 @@ export class PlandialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.data.body);
     this.firstFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
       type: ['', Validators.required],
@@ -38,14 +39,18 @@ export class PlandialogComponent implements OnInit {
       beginData: [null],
       endData: [null],
       parent: [null],
+      id: [null]
+    });
+
+    this.secondFormGroup = this.formBuilder.group({
       description: [null],
       stakeholders: [null],
       cost: ['', Validators.required],
-      id: [null]
     });
 
     if (this.dialF === 'edit') {
       this.firstFormGroup.patchValue(this.data.body);
+      this.secondFormGroup.patchValue(this.data.body);
     }
 
     this.typeList();
@@ -55,34 +60,42 @@ export class PlandialogComponent implements OnInit {
 
   typeList() {
     this.service.list('types').subscribe(e => {
+      this.typeArray = [];
       this.typeArray = e;
     });
   }
 
   userList() {
     this.service.list('users').subscribe(e => {
+      this.userArray = [];
       this.userArray = e;
     });
   }
 
   planList() {
     this.service.listPlans().subscribe(e => {
+      this.planArray = [];
       this.planArray = e;
     });
   }
 
   save() {
-    console.log('data', this.data);
     if (this.data.body !== null) {
       this.temp = {
         ...this.firstFormGroup.value,
-        status: this.data.body.status
+        ...this.secondFormGroup.value,
+        status: this.data.body.status,
+        childs: this.data.body.childs
       };
+      
     } else {
-      this.temp = this.firstFormGroup.value;
+      this.temp = {
+        ...this.firstFormGroup.value,
+        ...this.secondFormGroup.value
+      };
+      
     }
 
-    console.log(this.temp);
     this.dialogRef.close({ data: this.temp, closed: true });
   }
 }

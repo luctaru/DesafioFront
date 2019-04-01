@@ -36,6 +36,7 @@ import { FormdialogComponent } from './components/formdialog/formdialog.componen
 import { SettingsbuttonComponent } from './components/planlist/settingsbutton/settingsbutton/settingsbutton.component';
 import { PlandialogComponent } from './components/plandialog/plandialog.component';
 import { UserdivComponent } from './components/planlist/userdiv/userdiv.component';
+import { SubplansComponent } from './components/planlist/subplans/subplans.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { UserdivComponent } from './components/planlist/userdiv/userdiv.componen
     FormdialogComponent,
     SettingsbuttonComponent,
     PlandialogComponent,
-    UserdivComponent
+    UserdivComponent,
+    SubplansComponent
   ],
   imports: [
     BrowserModule,
