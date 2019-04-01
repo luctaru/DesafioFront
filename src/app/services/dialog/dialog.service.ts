@@ -37,7 +37,16 @@ export class DialogService {
             this.emitt.emit();
           });
         } else {
+
           this.service.deletePlan(id).subscribe(() => {
+            this.plans.forEach(e => {
+              if (e.parent === id) {
+                setTimeout(() => {
+                  this.service.deletePlan(e.id).subscribe();
+                }, 200
+                );
+              }
+            });
             this.emitt.emit();
           });
         }
@@ -107,7 +116,23 @@ export class DialogService {
             this.emitt.emit();
           });
         } else {
-          this.service.insertPlan(result.data).subscribe(() => {
+          this.service.insertPlan(result.data).subscribe((d: any) => {
+            let pla: Plans;
+            this.plans.forEach(e => {
+              if (e.id === d.parent) {
+                pla = e;
+                if (pla.childs === null) {
+                  pla.childs = [];
+                }
+                console.log(pla);
+                pla.childs.push(d.id);
+                console.log(pla);
+                this.service.updateSubPlan(pla).subscribe(() => {
+                  this.emitt.emit();
+                });
+                return;
+              }
+            });
             this.emitt.emit();
           });
         }

@@ -87,15 +87,12 @@ export class PlandialogComponent implements OnInit {
         status: this.data.body.status,
         childs: this.data.body.childs
       };
-      
     } else {
       this.temp = {
         ...this.firstFormGroup.value,
         ...this.secondFormGroup.value
       };
-      
     }
-
     this.dialogRef.close({ data: this.temp, closed: true });
   }
 }

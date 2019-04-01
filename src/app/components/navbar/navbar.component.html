@@ -2,13 +2,30 @@
 <div class="example-container">
   <mat-toolbar color="primary" class="example-toolbar" style="background-color: #1a587d!important;">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Qualiex</h1>
+    <img class="example-app-name" src="../../../assets/qualiex_logo_white.png"/>
+    <div style="margin:5%; font-size: 11pt; border-left: 3px solid turquoise; padding-left:2px; border-radius: 3px">
+      <div style="display:flex">
+        <p>Planner</p>
+      </div>
+    <p style="line-height: 2%">Gestão Estratégica</p>
+  </div>
+  <mat-icon>arrow_drop_down</mat-icon>
+  <div class="divnav" style="display: flex; height: 100%; width: 100%; justify-content: flex-end">
+    <div class="divnav" style="float:right; display:flex; border-left: 2px solid darkgrey;border-right: 2px solid darkgrey">
+      <p class="divnav" style="font-size: 11pt; align-self: center; margin: 0; padding: 2px">ATUALIZAÇÕES</p>
+    </div>
+    <div class="divnav" style="float:right; font-size: 11pt; margin-left: 5%;">
+      <p>Usuário</p>
+      <p style="line-height: 5%">usu@email.com</p>
+    </div>
+    <img class="divnav" style="width:10%;border-radius: 50%; margin-left: 2%" src="https://trello-attachments.s3.amazonaws.com/5c59af35f317007fe99fe41d/300x300/6e705f3f6e67829783f04d8b55a26c52/lucas-tarumoto-01.jpg"/>
+  </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav #snav>
       <mat-nav-list>
-        <a mat-list-item>Visão Geral</a>
+        <a mat-list-item routerLink="">Visão Geral</a>
         <a mat-list-item routerLink="plans" (click)="setLocalStoragePlans()">Planos</a>
         <a mat-list-item routerLink="users" (click)="setLocalStorageUser()">Usuários</a>
         <a mat-list-item routerLink="types" (click)="setLocalStoragePlantype()">Tipos de Planos</a>

@@ -99,7 +99,6 @@ export class PlanlistComponent implements OnInit, OnDestroy {
     this.service.list('types').subscribe(e => {
       this.plantype = e;
     });
-    console.log(this.plan);
   }
 
   listen() {
@@ -117,23 +116,7 @@ export class PlanlistComponent implements OnInit, OnDestroy {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      let aux;
-      let auxCurrent;
-      let x: any;
-      for (x of event.container.data) {
-        if (event.previousIndex === x.id) {
-          aux = x;
-        }
-        if (event.currentIndex === x.id) {
-          auxCurrent = x;
-        }
-      }
-      console.log('entrou', aux);
-      console.log(auxCurrent);
-      this.service.updatePlan(auxCurrent, aux.id).subscribe(() => {
-        this.service.updatePlan(aux, auxCurrent.id).subscribe(() => {
-        });
-      });
+
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,

@@ -1,12 +1,4 @@
-section{
-  display: flex;
-  flex-wrap: wrap;
-  padding: 2%;
-  justify-content: center;
-  min-height: 100%;
-  width: 70%;
-  margin: auto!important;
-}
+
 
 .example-container {
   width: 100%;
@@ -40,15 +32,6 @@ section{
   cursor: move;
   background: white;
   font-size: 14px;
-}
-
-mat-tab-group{
-  width: 85%;
-  min-height: 100%!important;
-}
-
-mat-tab{
-  min-height: 100%!important;
 }
 
 mat-expansion-panel{
@@ -92,13 +75,7 @@ mat-expansion-panel-header{
 }
 
 @media only screen and (max-width: 400px) {
-  section{
-    width: 100%;
-  }
   .userdiv{
-    display: none;
-  }
-  img{
     display: none;
   }
 }

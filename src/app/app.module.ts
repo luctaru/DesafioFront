@@ -23,7 +23,7 @@ import {
   MatSelectModule,
   MatMenuModule,
   MatExpansionModule,
-  MatTreeModule,
+  MatCardModule,
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
@@ -37,6 +37,8 @@ import { SettingsbuttonComponent } from './components/planlist/settingsbutton/se
 import { PlandialogComponent } from './components/plandialog/plandialog.component';
 import { UserdivComponent } from './components/planlist/userdiv/userdiv.component';
 import { SubplansComponent } from './components/planlist/subplans/subplans.component';
+import { DasboardComponent } from './components/dasboard/dasboard.component';
+import { StatustabComponent } from './components/statustab/statustab.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { SubplansComponent } from './components/planlist/subplans/subplans.compo
     SettingsbuttonComponent,
     PlandialogComponent,
     UserdivComponent,
-    SubplansComponent
+    SubplansComponent,
+    DasboardComponent,
+    StatustabComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,7 @@ import { SubplansComponent } from './components/planlist/subplans/subplans.compo
     MatSelectModule,
     MatMenuModule,
     MatExpansionModule,
-    MatTreeModule,
+    MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule
   ],

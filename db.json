@@ -4,12 +4,12 @@
       "name": "Plano 2",
       "type": "Tipo 3",
       "user": 2,
-      "status": 2,
+      "status": 4,
       "parent": null,
       "beginData": "2019-03-30",
       "endData": "2019-04-15",
       "childs": [
-        3,
+        2,
         4
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
@@ -20,82 +20,20 @@
       "id": 0
     },
     {
-      "name": "mudakct",
-      "type": "Tipo 2",
-      "user": 3,
-      "status": 3,
-      "parent": null,
-      "beginData": "2019-03-29T03:00:00.000Z",
-      "endData": "2019-03-30T03:00:00.000Z",
-      "childs": [
-        5
-      ],
-      "description": "wdwqe",
-      "stakeholders": null,
-      "cost": "321312",
-      "id": 1
-    },
-    {
       "name": "subplano 2",
       "type": "Tipo 2",
       "user": 3,
       "status": 3,
       "parent": 0,
-      "childs": null,
       "beginData": "2019-03-29T03:00:00.000Z",
       "endData": "2019-03-30T03:00:00.000Z",
+      "childs": [
+        null
+      ],
       "description": "wdwqe",
       "stakeholders": null,
       "cost": "321312",
-      "id": 3
-    },
-    {
-      "name": "subplano 1",
-      "type": "Tipo 2",
-      "user": 3,
-      "status": 3,
-      "parent": 0,
-      "childs": null,
-      "beginData": "2019-03-29T03:00:00.000Z",
-      "endData": "2019-03-30T03:00:00.000Z",
-      "description": "wdwqe",
-      "stakeholders": null,
-      "cost": "321312",
-      "id": 4
-    },
-    {
-      "name": "subkct",
-      "type": "Tipo 2",
-      "user": 1,
-      "status": 0,
-      "parent": 3,
-      "childs": null,
-      "beginData": null,
-      "endData": null,
-      "description": null,
-      "stakeholders": [
-        1,
-        2
-      ],
-      "cost": "",
-      "id": 5
-    },
-    {
-      "name": "dasdsa",
-      "type": "Tipo 2",
-      "user": 1,
-      "status": 0,
-      "parent": 2,
-      "childs": null,
-      "beginData": null,
-      "endData": null,
-      "description": null,
-      "stakeholders": [
-        1,
-        2
-      ],
-      "cost": "12",
-      "id": 7
+      "id": 2
     },
     {
       "name": "plano 3",
@@ -106,7 +44,7 @@
       "beginData": null,
       "endData": null,
       "childs": [
-        9
+        3
       ],
       "description": null,
       "stakeholders": [
@@ -114,14 +52,14 @@
         2
       ],
       "cost": "213112321",
-      "id": 8
+      "id": 1
     },
     {
       "name": "sub 3",
       "type": "Tipo 2",
       "user": 1,
       "status": 0,
-      "parent": 8,
+      "parent": 1,
       "childs": null,
       "beginData": null,
       "endData": null,
@@ -131,7 +69,41 @@
         2
       ],
       "cost": "2321",
-      "id": 9
+      "id": 3
+    },
+    {
+      "name": "tst",
+      "type": "Tipo 1",
+      "user": 1,
+      "status": 0,
+      "parent": 0,
+      "childs": null,
+      "beginData": null,
+      "endData": null,
+      "description": null,
+      "stakeholders": [
+        2,
+        3
+      ],
+      "cost": "32321",
+      "id": 4
+    },
+    {
+      "name": "Sub",
+      "type": "Tipo 2",
+      "user": 1,
+      "status": 0,
+      "parent": 5,
+      "childs": null,
+      "beginData": null,
+      "endData": null,
+      "description": null,
+      "stakeholders": [
+        1,
+        2
+      ],
+      "cost": "321231312",
+      "id": 6
     }
   ],
   "users": [

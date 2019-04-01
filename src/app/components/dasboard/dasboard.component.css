@@ -1,0 +1,19 @@
+mat-card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center!important;
+  min-width: 40%;
+  height: 300px!important;
+  margin: 2%;
+  padding: auto;
+  font-size: 16pt;
+}
+
+.numb{
+  display: flex;
+  flex: 1 0 100%;
+  font-size: 50pt;
+  justify-content: center
+}
+
+
