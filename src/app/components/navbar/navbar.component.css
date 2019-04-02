@@ -18,14 +18,18 @@
 
 .example-sidenav-container{
   min-height: 100%!important;
+  max-height: 100%!important;
+  background-color:#f0f0f0!important;
 }
 
 mat-sidenav-content{
-  height: 100%;
+  height: 100%!important;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 630px) {
   .divnav{
     display: none!important;
   }
 }
+
+

@@ -1,8 +1,10 @@
+<h1 *ngIf="tabletype == 'users'; else elseTable" style="margin: 2% auto auto 2%;">Usuários</h1>
+<ng-template #elseTable><h1 style="margin: 2% auto auto 2%">Tipos de Planos</h1></ng-template>
 <mat-form-field>
   <input
     matInput
     (keyup)="applyFilter($event.target.value)"
-    placeholder="Search "
+    placeholder="Pesquisar "
   />
 </mat-form-field>
 

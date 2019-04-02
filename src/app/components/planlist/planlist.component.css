@@ -1,11 +1,13 @@
 section{
   display: flex;
   flex-wrap: wrap;
-  padding: 2%;
+  padding: 0 0 2% 0;
   justify-content: center;
-  min-height: 100%;
+  min-height: 100%!important;
   width: 70%;
-  margin: auto!important;
+  margin: 2% auto 2% auto!important;
+  background-color: white;
+  box-shadow: 10px 9px 11px -7px rgba(0, 0, 0, 0.75);
 }
 
 .example-container {
@@ -59,8 +61,17 @@ mat-expansion-panel-header{
   height: auto!important;
 }
 
+.mat-18{
+
+}
+
 #divchilds{
   display: none;
+}
+
+.userdiv{
+  display: flex!important;
+  flex: 1 0 40%;
 }
 
 .mat-select-placeholder {
@@ -91,14 +102,27 @@ mat-expansion-panel-header{
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   section{
     width: 100%;
   }
   .userdiv{
     display: none;
   }
+}
+
+@media only screen and (max-width: 750px) {
+
   img{
     display: none;
   }
+
+}
+
+@media only screen and (max-width: 550px) {
+
+  .userdiv{
+    display: none!important;
+  }
+
 }

@@ -28,6 +28,7 @@ export class TableComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = [
   ];
+  tabletype = localStorage.getItem('types');
 
   dataSource: MatTableDataSource<User>;
   selection = new SelectionModel<User>(true, []);

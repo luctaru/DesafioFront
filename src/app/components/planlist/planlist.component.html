@@ -1,12 +1,17 @@
 <section>
-  <div style="display: flex;flex: 1 0 100%; justify-content: space-around">
-    <h1>Planos</h1>
-    <button mat-icon-button>
-      <mat-icon class="mat-18" (click)="addPlan()">add</mat-icon>
+  <div style="display: flex; width:100%!important; justify-content: space-around;
+   margin-bottom: 3%; box-shadow: 0px 5px 10px -5.5px rgba(0,0,0,0.75);">
+    <h1 style="margin: auto 0 auto 0;">Planos</h1>
+    <button mat-icon-button style="display: flex; background-color: #0592d2!important; margin: 1%;
+    border-radius: 50%!important; justify-content: center">
+      <mat-icon class="mat-18" (click)="addPlan()" style="color:white!important;">add</mat-icon>
     </button>
   </div>
-  <mat-tab-group style="height: 100%">
-    <mat-tab label="Todos">
+  <div style="height: 100%">
+    <button mat-icon-button style="display: flex; background-color: grey!important; margin: 1%;
+    border-radius: 50%!important; justify-content: center">
+      <mat-icon class="mat-18">filter_list</mat-icon>
+    </button>
       <div class="example-container">
         <div
           cdkDropList
@@ -63,7 +68,7 @@
 
                 <div
                   class="userdiv"
-                  style="float: right!important; flex: 1 0 40%; margin: auto;display: flex;"
+                  style="float: right!important; margin: auto;"
                 >
                   <app-userdiv style="flex: 1 0 50%" [userid]=item.user></app-userdiv>
                   <img style="height:50px;border-radius: 50%; margin-left:2%; margin-right: 2% flex: 1 0 50%"
@@ -77,9 +82,9 @@
           </div>
         </div>
       </div>
-    </mat-tab>
 
-    <mat-tab label="Aguardando">
+
+    <!-- <mat-tab label="Aguardando">
       <app-statustab [stat]="planStatusZero"></app-statustab>
     </mat-tab>
 
@@ -97,7 +102,7 @@
 
     <mat-tab label="Cancelados">
       <app-statustab [stat]="planStatusFour"></app-statustab>
-    </mat-tab>
-  </mat-tab-group>
+    </mat-tab> -->
+  </div>
 
 </section>
